@@ -39,12 +39,14 @@ let myCode = (function () {
         if (document.querySelector("#recommend-results").classList[1] !== "hide") {
             document.querySelector("#recommend-results").classList.add("hide");
             document.querySelector("#search-results").classList.remove("hide");
+            document.querySelector("#recommend-results").classList.remove("searchPageOn");
         } else {
             document.querySelector("#searchbar").classList.remove("fixedPosition");
             document.querySelector("#movieBig").classList.remove("hiddeMovie");
             document.querySelector("#search-results").classList.remove("searchPageOn");
             document.querySelector("#search-results").classList.add("hide");
             document.querySelector("#backIcon").classList.add("hide");
+            document.querySelector("#imageAttri").classList.remove("imageAttriRe");
         }
     }
 
@@ -182,6 +184,7 @@ let myCode = (function () {
         document.querySelector("#searchbar").classList.add("fixedPosition");
         document.querySelector("#movieBig").classList.add("hiddeMovie");
         document.querySelector("#recommend-results").classList.add("hide");
+        document.querySelector("#imageAttri").classList.add("imageAttriRe");
         if (!JSON.parse(localStorage.getItem(videoTypeKey))) {
             videoType = "movie";
             localStorage.setItem(videoTypeKey, JSON.stringify(videoType));
@@ -320,6 +323,7 @@ let myCode = (function () {
                 });
                 document.querySelector("#search-results").classList.add("hide");
                 document.querySelector("#recommend-results").classList.remove("hide");
+                document.querySelector("#recommend-results").classList.add("searchPageOn");
             })
             .catch((error) => alert(error));
     }
